@@ -42,6 +42,43 @@ class Airplane {
 
 class Person {
 
+  function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }
+  
+  // create an eat method that gives the person the ability to eat some food - it has a param of thing that we can pass food into as an arg
+  // if the stomach length is < 10 the person can eat
+  // we want to push the argument to the array
+  
+  Person.prototype.eat = function(edible) {
+    if (this.stomach.length < 10) {
+      this.stomach.push(edible);
+    }
+  };
+  
+  // create a poop method - the poop method should empty the stomach
+  Person.prototype.poop = function() {
+    this.stomach = [];
+  };
+  
+  // method call toString - needs to return a string with the name and age
+  
+  Person.prototype.toString = function() {
+    return `${this.name}, ${this.age}`;
+  };
+  
+  const personOne = new Person("Noah", 21);
+  
+  console.log(personOne.toString());
+  personOne.eat("chicken");
+  personOne.eat("steak");
+  personOne.eat("pork");
+  console.log(personOne.stomach);
+  personOne.poop();
+  console.log(personOne.stomach);
+
 }
 
 /*
